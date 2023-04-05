@@ -1,0 +1,1555 @@
+<!-- Elements added to main will be displayed on all pages -->
+<!DOCTYPE html>
+
+<html class="no-js" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../images/crane.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-7.3.6" name="generator"/>
+<title>Appliance Migration - Assemblyline 4</title>
+<link href="../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#docker-compose-kubernetes-system-migration">
+          Aller au contenu
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="En-tête" class="md-header__inner md-grid">
+<a aria-label="Assemblyline 4" class="md-header__button md-logo" data-md-component="logo" href="../../" title="Assemblyline 4">
+<img alt="logo" src="../../../images/crane.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Assemblyline 4
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Appliance Migration
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"></path></svg>
+</label>
+</form>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Sélectionner la langue" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="../../../en/installation/deployment_migration/" hreflang="en">
+                    English
+                  </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="fr">
+                    Français
+                  </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Rechercher" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Rechercher" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Effacer" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/CybercentreCanada/assemblyline4_docs" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Onglets" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
+      Accueil
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../overview/how_it_works/">
+        Tour
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../user_manual/submitting_file/">
+        Manuel d'utilisateur
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../deployment/">
+        Installation
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../administration/signature_management/">
+        Administration
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../integration/ingestion_method/">
+        Intégration
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../developer_manual/env/getting_started/">
+        Guide du développeur
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../odm/getting_started/">
+        Data Ontology
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Assemblyline 4" class="md-nav__button md-logo" data-md-component="logo" href="../../" title="Assemblyline 4">
+<img alt="logo" src="../../../images/crane.png"/>
+</a>
+    Assemblyline 4
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/CybercentreCanada/assemblyline4_docs" title="Aller au dépôt">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+        Accueil
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Tour
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Tour" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Tour
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../overview/how_it_works/">
+        Comment ça fonctionne
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../overview/architecture/">
+        System Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../overview/services/">
+        Services d'Assemblyline
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../overview/community_services/">
+        Services de la communauté
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          Manuel d'utilisateur
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Manuel d'utilisateur" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Manuel d'utilisateur
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../user_manual/submitting_file/">
+        Soumettre un fichier aux fins d’analyse
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../user_manual/results/">
+        Résultats d’Assemblyline
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../user_manual/searching/">
+        Recherche
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Getting Started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../deployment/">
+        Choose your deployment type
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1_2" id="__nav_4_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2">
+          Appliance
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Appliance" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Appliance
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appliance/docker/">
+        Docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../appliance/kubernetes-microk8s/">
+        MicroK8s
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1_3" id="__nav_4_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_3">
+          Cluster
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cluster" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_3">
+<span class="md-nav__icon md-icon"></span>
+          Cluster
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cluster/general/">
+        Kubernetes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cluster/microk8s/">
+        MicroK8s
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Appliance Migration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Appliance Migration
+      </a>
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-compose-system">
+    Docker-Compose System
+  </a>
+<nav aria-label="Docker-Compose System" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-docker-service-for-backups">
+    Create a Docker service for backups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-datastore-indices">
+    Backup Datastore indices
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-filestore-directories">
+    Backup Filestore directories
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kubernetes-system">
+    Kubernetes System
+  </a>
+<nav aria-label="Kubernetes System" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restoring-the-datastore">
+    Restoring the Datastore
+  </a>
+<nav aria-label="Restoring the Datastore" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mount-your-backup-using-corevolumes-and-coremounts">
+    Mount your backup using coreVolumes and coreMounts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restore-datastore-by-using-the-assemblyline-cli">
+    Restore Datastore by using the Assemblyline CLI
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#migrating-the-filestore">
+    Migrating the Filestore
+  </a>
+<nav aria-label="Migrating the Filestore" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edit-filestore-deployment-in-kubernetes">
+    Edit Filestore Deployment in Kubernetes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#merge-filestore-data-with-existing-volume">
+    Merge Filestore data with existing volume
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#migrate-system-configuration">
+    Migrate System Configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extra-configurations">
+    Extra Configurations!
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Configuration" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/config_file/">
+        Configuration YAML file
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/authentication/">
+        Authentication section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/core/">
+        Core component section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/datasources/">
+        Data sources section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/datastore/">
+        Database section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/filestore/">
+        File storage section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/logging/">
+        Logging section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/services/">
+        Service section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/submission/">
+        Submission section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/system/">
+        System section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/ui/">
+        User Interface section
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_3_12" id="__nav_4_3_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_12">
+          Kubernetes-specific
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Kubernetes-specific" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_12">
+<span class="md-nav__icon md-icon"></span>
+          Kubernetes-specific
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../configuration/kubernetes/internal_encryption/">
+        Internal Encryption (TLS/SSL)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../classification_engine/">
+        Classification engine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../monitoring/">
+        Monitoring with ELK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../replay/">
+        Syncing Instances (Replay)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          Administration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Administration" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Administration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/signature_management/">
+        Signature Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/source_management/">
+        Signature Source Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/service_management/">
+        Service management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system_management/">
+        System Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system_safelist/">
+        System safelist
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/user_management/">
+        User Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/troubleshooting/">
+        Troubleshooting / FAQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/submission_actions/">
+        Submission (Post-Process) Actions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          Intégration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Intégration" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Intégration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../integration/ingestion_method/">
+        Choosing your ingestion method
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../integration/key_generation/">
+        Generating an API key
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../integration/python/">
+        Python Client
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../integration/java/">
+        Java Client
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../integration/rest/">
+        RESTful API
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          Guide du développeur
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Guide du développeur" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Guide du développeur
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_1" id="__nav_7_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1">
+          Setup Environment
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup Environment" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_1">
+<span class="md-nav__icon md-icon"></span>
+          Setup Environment
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/env/getting_started/">
+        Getting Started
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_1_2" id="__nav_7_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1_2">
+          VSCode
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="VSCode" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_7_1_2">
+<span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/env/vscode/setup_script/">
+        Setup script
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/env/vscode/use_vscode/">
+        Use VSCode
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_1_3" id="__nav_7_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1_3">
+          Pycharm
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Pycharm" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_7_1_3">
+<span class="md-nav__icon md-icon"></span>
+          Pycharm
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/env/pycharm/local_development/">
+        Local development
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/env/pycharm/remote_development/">
+        Remote development
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/env/pycharm/use_pycharm/">
+        Use PyCharm
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_2" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Services" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+          Services
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/developing_an_assemblyline_service/">
+        Developing a service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/adding_a_service_updater/">
+        Adding a Service Updater
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/run_your_service/">
+        Run your service
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_2_4" id="__nav_7_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2_4">
+          Advanced development
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Advanced development" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_7_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Advanced development
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/service_base/">
+        ServiceBase Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/service_updater_base/">
+        ServiceUpdater Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/request/">
+        Request Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/result/">
+        Result Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/result_section/">
+        ResultSection Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/service_manifest/">
+        Service manifest
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/services/advanced/service_updater_upgrade/">
+        How-to: Upgrade Service Updater for Assemblyline 4.1+
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/core/infrastructure/">
+        Infrastructure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/frontend/frontend/">
+        Frontend
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../developer_manual/docs/docs/">
+        Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          Data Ontology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Data Ontology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Data Ontology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/getting_started/">
+        Getting Started
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Models" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/actions/">
+        PostprocessAction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/alert/">
+        Alert
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/cached_file/">
+        CachedFile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/config/">
+        Config
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/emptyresult/">
+        EmptyResult
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/error/">
+        Error
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/file/">
+        File
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/filescore/">
+        FileScore
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/heuristic/">
+        Heuristic
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2_10" id="__nav_8_2_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_10">
+          Ontology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ontology" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_2_10">
+<span class="md-nav__icon md-icon"></span>
+          Ontology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2_10_1" id="__nav_8_2_10_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_10_1">
+          Filetypes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Filetypes" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_8_2_10_1">
+<span class="md-nav__icon md-icon"></span>
+          Filetypes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/filetypes/pe/">
+        PE
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/ontology/">
+        ResultOntology
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2_10_3" id="__nav_8_2_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_10_3">
+          Results
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Results" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_8_2_10_3">
+<span class="md-nav__icon md-icon"></span>
+          Results
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/results/antivirus/">
+        Antivirus
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/results/malware_config/">
+        MalwareConfig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/results/network/">
+        NetworkConnection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/results/process/">
+        Process
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/results/sandbox/">
+        Sandbox
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/ontology/results/signature/">
+        Signature
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/replay/">
+        ReplayConfig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/result/">
+        Result
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/safelist/">
+        Safelist
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/service/">
+        Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/service_delta/">
+        ServiceDelta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/signature/">
+        Signature
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/statistics/">
+        Statistics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/submission/">
+        Submission
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/submission_summary/">
+        SubmissionSummary
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/submission_tree/">
+        SubmissionTree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/tagging/">
+        Tagging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/user/">
+        User
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/user_favorites/">
+        UserFavorites
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/user_settings/">
+        UserSettings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/models/workflow/">
+        Workflow
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_3" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3">
+          Messages
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Messages" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+          Messages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/alert/">
+        AlertMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/alerter_heartbeat/">
+        AlerterMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/archive_heartbeat/">
+        ArchiveMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/dispatcher_heartbeat/">
+        DispatcherMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/dispatching/">
+        DispatcherCommandMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/expiry_heartbeat/">
+        ExpiryMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/ingest_heartbeat/">
+        IngestMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/metrics/">
+        MetricsMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/scaler_heartbeat/">
+        ScalerMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/scaler_status_heartbeat/">
+        ScalerStatusMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/service_heartbeat/">
+        ServiceMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/service_timing_heartbeat/">
+        ServiceTimingMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/submission/">
+        SubmissionMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/task/">
+        TaskMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../odm/messages/vacuum_heartbeat/">
+        VacuumMessage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table des matières" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-compose-system">
+    Docker-Compose System
+  </a>
+<nav aria-label="Docker-Compose System" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-docker-service-for-backups">
+    Create a Docker service for backups
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-datastore-indices">
+    Backup Datastore indices
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backup-filestore-directories">
+    Backup Filestore directories
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kubernetes-system">
+    Kubernetes System
+  </a>
+<nav aria-label="Kubernetes System" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restoring-the-datastore">
+    Restoring the Datastore
+  </a>
+<nav aria-label="Restoring the Datastore" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mount-your-backup-using-corevolumes-and-coremounts">
+    Mount your backup using coreVolumes and coreMounts
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#restore-datastore-by-using-the-assemblyline-cli">
+    Restore Datastore by using the Assemblyline CLI
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#migrating-the-filestore">
+    Migrating the Filestore
+  </a>
+<nav aria-label="Migrating the Filestore" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#edit-filestore-deployment-in-kubernetes">
+    Edit Filestore Deployment in Kubernetes
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#merge-filestore-data-with-existing-volume">
+    Merge Filestore data with existing volume
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#migrate-system-configuration">
+    Migrate System Configuration
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#extra-configurations">
+    Extra Configurations!
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/CybercentreCanada/assemblyline4_docs/edit/master/docs/installation/deployment_migration.md" title="Editer cette page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1 id="docker-compose-kubernetes-system-migration">Docker-Compose → Kubernetes System Migration<a class="headerlink" href="#docker-compose-kubernetes-system-migration" title="Permanent link">¶</a></h1>
+<p>This guide assumes you're moving from a vanilla Docker-Compose-based deployment to a Kubernetes deployment.</p>
+<div class="admonition caution">
+<p class="admonition-title">No processing on either system should be occurring during this migration process</p>
+</div>
+<h2 id="docker-compose-system">Docker-Compose System<a class="headerlink" href="#docker-compose-system" title="Permanent link">¶</a></h2>
+<h3 id="create-a-docker-service-for-backups">Create a Docker service for backups<a class="headerlink" href="#create-a-docker-service-for-backups" title="Permanent link">¶</a></h3>
+<p>Create a <code>backup</code> container that has access to the datastore's API and the filestore volume.</p>
+<p>You can modify the <code>docker-compose.yaml</code> of your deployment type like the following:
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="c1"># Add a new service called 'backup' to facilitate backing up Assemblyline</span>
+<span class="w">  </span><span class="nt">backup</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">privilege-core-image</span>
+<span class="w">      </span><span class="nt">args</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${AL_VERSION}</span>
+<span class="w">        </span><span class="nt">registry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${REGISTRY}</span>
+<span class="w">      </span><span class="nt">cache_from</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cccs/assemblyline-core:${AL_VERSION}</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${COMPOSE_PROJECT_NAME}_scaler:${AL_VERSION}</span>
+<span class="w">    </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="nt">env_file</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">".env"</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${COMPOSE_ROOT}/config/config.yml:/etc/assemblyline/config.yml:ro</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup:/mount/backup:rw</span><span class="w">       </span><span class="c1"># Mount backup volume</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filestore:/data</span><span class="w">               </span><span class="c1"># Mount filestore volume</span>
+
+<span class="w">    </span><span class="nt">networks</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">core</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">"sleep</span><span class="nv"> </span><span class="s">9999999999d"</span><span class="w">      </span><span class="c1"># Start up and keep running so we can shell into the container later</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">backup</span><span class="p p-Indicator">:</span><span class="w">                             </span><span class="c1"># Add a backup volume</span>
+</code></pre></div></p>
+<h3 id="backup-datastore-indices">Backup Datastore indices<a class="headerlink" href="#backup-datastore-indices" title="Permanent link">¶</a></h3>
+<p>Shell into your <code>backup</code> container, open the AL CLI tool, and backup the datastore data to the mount.</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><label for="__tabbed_1_1">System-only</label><div class="tabbed-content">
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The following indices will be backed up:</p>
+<p><code>heuristic, service, service_delta, signature, user, user_avatar, user_favorites, user_settings, workflow</code></p>
+</div>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>assemblyline.run.cli
+backup<span class="w"> </span>/mount/backup/al_system
+ls<span class="w"> </span>/mount/backup/
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio"><label for="__tabbed_1_2">Everything</label><div class="tabbed-content">
+<div class="admonition info">
+<p class="admonition-title">All indices will be backed up</p>
+</div>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>assemblyline.run.cli
+backup<span class="w"> </span>/mount/backup/al_alert<span class="w"> </span>alert<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_cached_file<span class="w"> </span>cached_file<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_emptyresult<span class="w"> </span>emptyresult<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_error<span class="w"> </span>error<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_file<span class="w"> </span>file<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_filescore<span class="w"> </span>filescore<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_heuristic<span class="w"> </span>heuristic<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_result<span class="w"> </span>result<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_safelist<span class="w"> </span>safelist<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_service_delta<span class="w"> </span>service_delta<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_service<span class="w"> </span>service<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_signature<span class="w"> </span>signature<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_submission<span class="w"> </span>submission<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_submission_summary<span class="w"> </span>submission_summary<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_submission_tree<span class="w"> </span>submission_tree<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_user_avatar<span class="w"> </span>user_avatar<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_user<span class="w"> </span>user<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_user_settings<span class="w"> </span>user_settings<span class="w"> </span>force<span class="w"> </span>*
+backup<span class="w"> </span>/mount/backup/al_workflow<span class="w"> </span>workflow<span class="w"> </span>force<span class="w"> </span>*
+<span class="nb">exit</span>
+ls<span class="w"> </span>/mount/backup/
+</code></pre></div>
+</div>
+</input></input></div>
+<h3 id="backup-filestore-directories">Backup Filestore directories<a class="headerlink" href="#backup-filestore-directories" title="Permanent link">¶</a></h3>
+<p>Copy <code>al-cache</code> and <code>al-storage</code> to the backup volume
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/data/<span class="w"> </span>/mount/backup/filestore/
+</code></pre></div></p>
+<h2 id="kubernetes-system">Kubernetes System<a class="headerlink" href="#kubernetes-system" title="Permanent link">¶</a></h2>
+<h3 id="restoring-the-datastore">Restoring the Datastore<a class="headerlink" href="#restoring-the-datastore" title="Permanent link">¶</a></h3>
+<h4 id="mount-your-backup-using-corevolumes-and-coremounts">Mount your backup using coreVolumes and coreMounts<a class="headerlink" href="#mount-your-backup-using-corevolumes-and-coremounts" title="Permanent link">¶</a></h4>
+<p>Edit your <code>values.yaml</code> as follows and then perform a <code>helm upgrade</code>:
+<div class="highlight"><pre><span></span><code><span class="nt">coreVolumes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assemblyline-backup</span>
+<span class="w">    </span><span class="nt">hostPath</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/docker/volumes/al_backup/_data</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Directory</span>
+<span class="nt">coreMounts</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assemblyline-backup</span>
+<span class="w">    </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mount/backup</span>
+</code></pre></div></p>
+<h4 id="restore-datastore-by-using-the-assemblyline-cli">Restore Datastore by using the Assemblyline CLI<a class="headerlink" href="#restore-datastore-by-using-the-assemblyline-cli" title="Permanent link">¶</a></h4>
+<p>Shell into one of the core containers (ie. scaler) and perform the following:</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><label for="__tabbed_2_1">System-only</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>assemblyline.run.cli
+restore<span class="w"> </span>/mount/backup/al_system
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio"><label for="__tabbed_2_2">Everything</label><div class="tabbed-content">
+<div class="admonition warning">
+<p class="admonition-title">Not all systems are equal</p>
+<p>You will only need to restore with a subset of the folders listed below as your deployment isn't guaranteed to
+have data in every index (ie. alerts).</p>
+<p>Performing an <code>ls /mount/backup</code> will confirm what you have backed up.</p>
+</div>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>assemblyline.run.cli
+restore<span class="w"> </span>/mount/backup/al_alert<span class="w"> </span>alert<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_cached_file<span class="w"> </span>cached_file<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_emptyresult<span class="w"> </span>emptyresult<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_error<span class="w"> </span>error<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_file<span class="w"> </span>file<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_filescore<span class="w"> </span>filescore<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_heuristic<span class="w"> </span>heuristic<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_result<span class="w"> </span>result<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_safelist<span class="w"> </span>safelist<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_service_delta<span class="w"> </span>service_delta<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_service<span class="w"> </span>service<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_signature<span class="w"> </span>signature<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_submission<span class="w"> </span>submission<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_submission_summary<span class="w"> </span>submission_summary<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_submission_tree<span class="w"> </span>submission_tree<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_user_avatar<span class="w"> </span>user_avatar<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_user<span class="w"> </span>user<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_user_settings<span class="w"> </span>user_settings<span class="w"> </span>force<span class="w"> </span>*
+restore<span class="w"> </span>/mount/backup/al_workflow<span class="w"> </span>workflow<span class="w"> </span>force<span class="w"> </span>*
+<span class="nb">exit</span>
+</code></pre></div>
+</div>
+</input></input></div>
+<h3 id="migrating-the-filestore">Migrating the Filestore<a class="headerlink" href="#migrating-the-filestore" title="Permanent link">¶</a></h3>
+<h4 id="edit-filestore-deployment-in-kubernetes">Edit Filestore Deployment in Kubernetes<a class="headerlink" href="#edit-filestore-deployment-in-kubernetes" title="Permanent link">¶</a></h4>
+<p>Edit deployment and add the following hostpath mount:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">template</span><span class="p p-Indicator">:</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">spec</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">filestore</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">          </span><span class="nt">volumeMounts</span><span class="p">:</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">            </span><span class="l l-Scalar l-Scalar-Plain">- mountPath</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/mount/backup</span>
+<span class="w">              </span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">      </span><span class="nt">volumes</span><span class="p">:</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">- hostPath</span><span class="p p-Indicator">:</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/var/lib/docker/volumes/al_backup/_data</span>
+<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Directory</span>
+<span class="w">        </span><span class="w w-Error">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backup</span>
+</code></pre></div>
+<h4 id="merge-filestore-data-with-existing-volume">Merge Filestore data with existing volume<a class="headerlink" href="#merge-filestore-data-with-existing-volume" title="Permanent link">¶</a></h4>
+<p>Shell into the filestore pod and copy the files from backup:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>/mount/backup/filestore/*<span class="w"> </span>/export/
+</code></pre></div>
+<p>Once transfer is complete, you can remove the <code>volumeMount</code> and <code>volume</code> relating to the backup from the deployment.</p>
+<h3 id="migrate-system-configuration">Migrate System Configuration<a class="headerlink" href="#migrate-system-configuration" title="Permanent link">¶</a></h3>
+<p>You can copy the contents of <code>config.yml</code> and place them in the <code>configuration</code> key of your <code>values.yaml</code></p>
+<div class="admonition warning">
+<p class="admonition-title">Some configuration values are oriented towards the Docker-Compose appliance, so change values where applicable.</p>
+</div>
+<h3 id="extra-configurations">Extra Configurations!<a class="headerlink" href="#extra-configurations" title="Permanent link">¶</a></h3>
+<p>If you want to use custom configurations to control tag safelisting or classification, you'll need to create a ConfigMap and
+modify your helm deployment to make use of them.</p>
+<p>Let's say I want to add the following custom configurations to Kubernetes:</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><label for="__tabbed_3_1">classification.yml</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>enforce: true
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio"><label for="__tabbed_3_2">tag_safelist.yml</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>match:
+  network.dynamic.domain:
+    - localhost
+</code></pre></div>
+</div>
+</input></input></div>
+<p>You'll need to create a new file, say <code>objects.yaml</code>, with the following:</p>
+<p><div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assemblyline-extra-config</span>
+<span class="nt">data</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">tag_safelist</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">match:</span>
+<span class="w">      </span><span class="no">network.dynamic.domain:</span>
+<span class="w">        </span><span class="no">- localhost</span>
+<span class="w">  </span><span class="nt">classification</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">    </span><span class="no">enforce: true</span>
+</code></pre></div>
+Followed by a <code>kubectl apply -f objects.yaml -n &lt;al_namespace&gt;</code></p>
+<p>Once the new ConfigMap has been created in your Kubernetes namespace, you can modify your <code>values.yaml</code> as follows:
+<div class="highlight"><pre><span></span><code><span class="nt">coreEnv</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLASSIFICATION_CONFIGMAP</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assemblyline-extra-config</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CLASSIFICATION_CONFIGMAP_KEY</span>
+<span class="w">    </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classification</span>
+<span class="nt">coreMounts</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">al-extra-config</span>
+<span class="w">    </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/assemblyline/tag_whitelist.yml</span>
+<span class="w">    </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tag_safelist</span>
+<span class="w">    </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">al-extra-config</span>
+<span class="w">    </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/etc/assemblyline/classification.yml</span>
+<span class="w">    </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classification</span>
+<span class="w">    </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="nt">coreVolumes</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">al-extra-config</span>
+<span class="w">    </span><span class="nt">configMap</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">assemblyline-extra-config</span>
+</code></pre></div>
+Followed by a <code>helm upgrade</code> to apply the configurations.</p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Retour en haut de la page
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Pied de page" class="md-footer__inner md-grid">
+<a aria-label="Précédent: MicroK8s" class="md-footer__link md-footer__link--prev" href="../cluster/microk8s/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Précédent
+              </span>
+              MicroK8s
+            </div>
+</div>
+</a>
+<a aria-label="Suivant: Configuration YAML file" class="md-footer__link md-footer__link--next" href="../configuration/config_file/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Suivant
+              </span>
+              Configuration YAML file
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.expand", "navigation.top"], "search": "../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.config.lang": "fr", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Rechercher", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version.title": "S\u00e9lectionner la version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.b1047164.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+<script src="../../../javascripts/tables.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

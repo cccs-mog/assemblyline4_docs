@@ -1,0 +1,1666 @@
+<!-- Elements added to main will be displayed on all pages -->
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../../../../images/crane.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-7.3.6" name="generator"/>
+<title>Use VSCode - Assemblyline 4</title>
+<link href="../../../../../assets/stylesheets/main.a57b2b03.min.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/palette.3f5d1f46.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+<link href="../../../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../../../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="slate" dir="ltr">
+<script>function __prefix(e){return new URL("../../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#use-vscode">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Assemblyline 4" class="md-header__button md-logo" data-md-component="logo" href="../../../../" title="Assemblyline 4">
+<img alt="logo" src="../../../../../images/crane.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Assemblyline 4
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Use VSCode
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"></path></svg>
+</label>
+</form>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Select language" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="en">
+                    English
+                  </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../fr/developer_manual/env/vscode/use_vscode/" hreflang="fr">
+                    Français
+                  </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/CybercentreCanada/assemblyline4_docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-tabs__inner md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../">
+      Home
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../overview/how_it_works/">
+        Overview
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../user_manual/submitting_file/">
+        User's manual
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../installation/deployment/">
+        Installation
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../administration/signature_management/">
+        Administration
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../integration/ingestion_method/">
+        Integration
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../../getting_started/">
+        Developer's guide
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../odm/getting_started/">
+        Data Ontology
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Assemblyline 4" class="md-nav__button md-logo" data-md-component="logo" href="../../../../" title="Assemblyline 4">
+<img alt="logo" src="../../../../../images/crane.png"/>
+</a>
+    Assemblyline 4
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/CybercentreCanada/assemblyline4_docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</div>
+<div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Overview
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Overview" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Overview
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../overview/how_it_works/">
+        How it works
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../overview/architecture/">
+        System Architecture
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../overview/services/">
+        Assemblyline services
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../overview/community_services/">
+        Community services
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3">
+          User's manual
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="User's manual" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          User's manual
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../user_manual/submitting_file/">
+        Submitting a file for analysis
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../user_manual/results/">
+        Assemblyline results
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../user_manual/searching/">
+        Searching
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Installation" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Getting Started" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/deployment/">
+        Choose your deployment type
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1_2" id="__nav_4_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_2">
+          Appliance
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Appliance" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_2">
+<span class="md-nav__icon md-icon"></span>
+          Appliance
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/appliance/docker/">
+        Docker
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/appliance/kubernetes-microk8s/">
+        MicroK8s
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_1_3" id="__nav_4_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_3">
+          Cluster
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Cluster" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_3">
+<span class="md-nav__icon md-icon"></span>
+          Cluster
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/cluster/general/">
+        Kubernetes
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/cluster/microk8s/">
+        MicroK8s
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/deployment_migration/">
+        Appliance Migration
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3">
+          Configuration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Configuration" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Configuration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/config_file/">
+        Configuration YAML file
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/authentication/">
+        Authentication section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/core/">
+        Core component section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/datasources/">
+        Data sources section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/datastore/">
+        Database section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/filestore/">
+        File storage section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/logging/">
+        Logging section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/services/">
+        Service section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/submission/">
+        Submission section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/system/">
+        System section
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/ui/">
+        User Interface section
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_4_3_12" id="__nav_4_3_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_12">
+          Kubernetes-specific
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Kubernetes-specific" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_12">
+<span class="md-nav__icon md-icon"></span>
+          Kubernetes-specific
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/configuration/kubernetes/internal_encryption/">
+        Internal Encryption (TLS/SSL)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/classification_engine/">
+        Classification engine
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/monitoring/">
+        Monitoring with ELK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../installation/replay/">
+        Syncing Instances (Replay)
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5">
+          Administration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Administration" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Administration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/signature_management/">
+        Signature Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/source_management/">
+        Signature Source Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/service_management/">
+        Service management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/system_management/">
+        System Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/system_safelist/">
+        System safelist
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/user_management/">
+        User Management
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/troubleshooting/">
+        Troubleshooting / FAQ
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../administration/submission_actions/">
+        Submission (Post-Process) Actions
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_6" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6">
+          Integration
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Integration" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Integration
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../integration/ingestion_method/">
+        Choosing your ingestion method
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../integration/key_generation/">
+        Generating an API key
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../integration/python/">
+        Python Client
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../integration/java/">
+        Java Client
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../integration/rest/">
+        RESTful API
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7">
+          Developer's guide
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Developer's guide" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          Developer's guide
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1" id="__nav_7_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1">
+          Setup Environment
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Setup Environment" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_1">
+<span class="md-nav__icon md-icon"></span>
+          Setup Environment
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting_started/">
+        Getting Started
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_7_1_2" id="__nav_7_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1_2">
+          VSCode
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="VSCode" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_7_1_2">
+<span class="md-nav__icon md-icon"></span>
+          VSCode
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../setup_script/">
+        Setup script
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Use VSCode
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Use VSCode
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-tasks">
+    Running Tasks
+  </a>
+<nav aria-label="Running Tasks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#container-tasks">
+    Container tasks
+  </a>
+<nav aria-label="Container tasks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend">
+    Frontend
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resultsample">
+    ResultSample
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-compose-tasks">
+    Docker-compose tasks
+  </a>
+<nav aria-label="Docker-compose tasks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dependencies">
+    Dependencies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-components">
+    Core components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scaler-and-updater">
+    Scaler and Updater
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#services">
+    Services
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pytest-dependencies">
+    Pytest dependencies
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#launching-components-in-debug-mode">
+    Launching components in debug mode
+  </a>
+<nav aria-label="Launching components in debug mode" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-service-server-and-ui">
+    Core, Service Server, and UI
+  </a>
+<nav aria-label="Core, Service Server, and UI" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cli-command-line-interface">
+    CLI - Command Line Interface
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-launch-target">
+    Data Launch target
+  </a>
+<nav aria-label="Data Launch target" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-default-users">
+    Create default users
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generate-random-data">
+    Generate random data
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-live-services">
+    Running live services
+  </a>
+<nav aria-label="Running live services" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-launch-target-for-your-service">
+    Create a launch target for your service
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#launch-the-service">
+    Launch the service
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-tests">
+    Running Tests
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_1_3" id="__nav_7_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_1_3">
+          Pycharm
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Pycharm" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_7_1_3">
+<span class="md-nav__icon md-icon"></span>
+          Pycharm
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycharm/local_development/">
+        Local development
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycharm/remote_development/">
+        Remote development
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pycharm/use_pycharm/">
+        Use PyCharm
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_2" id="__nav_7_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2">
+          Services
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Services" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_7_2">
+<span class="md-nav__icon md-icon"></span>
+          Services
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/developing_an_assemblyline_service/">
+        Developing a service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/adding_a_service_updater/">
+        Adding a Service Updater
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/run_your_service/">
+        Run your service
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_7_2_4" id="__nav_7_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7_2_4">
+          Advanced development
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Advanced development" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_7_2_4">
+<span class="md-nav__icon md-icon"></span>
+          Advanced development
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/service_base/">
+        ServiceBase Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/service_updater_base/">
+        ServiceUpdater Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/request/">
+        Request Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/result/">
+        Result Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/result_section/">
+        ResultSection Class
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/service_manifest/">
+        Service manifest
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../services/advanced/service_updater_upgrade/">
+        How-to: Upgrade Service Updater for Assemblyline 4.1+
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../core/infrastructure/">
+        Infrastructure
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../frontend/frontend/">
+        Frontend
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../docs/docs/">
+        Documentation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8">
+          Data Ontology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Data Ontology" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+          Data Ontology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/getting_started/">
+        Getting Started
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2">
+          Models
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Models" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_2">
+<span class="md-nav__icon md-icon"></span>
+          Models
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/actions/">
+        PostprocessAction
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/alert/">
+        Alert
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/cached_file/">
+        CachedFile
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/config/">
+        Config
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/emptyresult/">
+        EmptyResult
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/error/">
+        Error
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/file/">
+        File
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/filescore/">
+        FileScore
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/heuristic/">
+        Heuristic
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2_10" id="__nav_8_2_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_10">
+          Ontology
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Ontology" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_8_2_10">
+<span class="md-nav__icon md-icon"></span>
+          Ontology
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2_10_1" id="__nav_8_2_10_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_10_1">
+          Filetypes
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Filetypes" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_8_2_10_1">
+<span class="md-nav__icon md-icon"></span>
+          Filetypes
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/filetypes/pe/">
+        PE
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/ontology/">
+        ResultOntology
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_2_10_3" id="__nav_8_2_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_2_10_3">
+          Results
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Results" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_8_2_10_3">
+<span class="md-nav__icon md-icon"></span>
+          Results
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/results/antivirus/">
+        Antivirus
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/results/malware_config/">
+        MalwareConfig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/results/network/">
+        NetworkConnection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/results/process/">
+        Process
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/results/sandbox/">
+        Sandbox
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/ontology/results/signature/">
+        Signature
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/replay/">
+        ReplayConfig
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/result/">
+        Result
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/safelist/">
+        Safelist
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/service/">
+        Service
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/service_delta/">
+        ServiceDelta
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/signature/">
+        Signature
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/statistics/">
+        Statistics
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/submission/">
+        Submission
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/submission_summary/">
+        SubmissionSummary
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/submission_tree/">
+        SubmissionTree
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/tagging/">
+        Tagging
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/user/">
+        User
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/user_favorites/">
+        UserFavorites
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/user_settings/">
+        UserSettings
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/models/workflow/">
+        Workflow
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-state="indeterminate" data-md-toggle="__nav_8_3" id="__nav_8_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8_3">
+          Messages
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Messages" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_8_3">
+<span class="md-nav__icon md-icon"></span>
+          Messages
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/alert/">
+        AlertMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/alerter_heartbeat/">
+        AlerterMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/archive_heartbeat/">
+        ArchiveMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/dispatcher_heartbeat/">
+        DispatcherMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/dispatching/">
+        DispatcherCommandMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/expiry_heartbeat/">
+        ExpiryMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/ingest_heartbeat/">
+        IngestMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/metrics/">
+        MetricsMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/scaler_heartbeat/">
+        ScalerMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/scaler_status_heartbeat/">
+        ScalerStatusMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/service_heartbeat/">
+        ServiceMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/service_timing_heartbeat/">
+        ServiceTimingMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/submission/">
+        SubmissionMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/task/">
+        TaskMessage
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../odm/messages/vacuum_heartbeat/">
+        VacuumMessage
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-tasks">
+    Running Tasks
+  </a>
+<nav aria-label="Running Tasks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#container-tasks">
+    Container tasks
+  </a>
+<nav aria-label="Container tasks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frontend">
+    Frontend
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resultsample">
+    ResultSample
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#docker-compose-tasks">
+    Docker-compose tasks
+  </a>
+<nav aria-label="Docker-compose tasks" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dependencies">
+    Dependencies
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-components">
+    Core components
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#scaler-and-updater">
+    Scaler and Updater
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#services">
+    Services
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pytest-dependencies">
+    Pytest dependencies
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#launching-components-in-debug-mode">
+    Launching components in debug mode
+  </a>
+<nav aria-label="Launching components in debug mode" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-service-server-and-ui">
+    Core, Service Server, and UI
+  </a>
+<nav aria-label="Core, Service Server, and UI" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cli-command-line-interface">
+    CLI - Command Line Interface
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-launch-target">
+    Data Launch target
+  </a>
+<nav aria-label="Data Launch target" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-default-users">
+    Create default users
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#generate-random-data">
+    Generate random data
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-live-services">
+    Running live services
+  </a>
+<nav aria-label="Running live services" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#create-a-launch-target-for-your-service">
+    Create a launch target for your service
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#launch-the-service">
+    Launch the service
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-tests">
+    Running Tests
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/CybercentreCanada/assemblyline4_docs/edit/master/docs/developer_manual/env/vscode/use_vscode.md" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
+</a>
+<h1 id="use-vscode">Use VSCode<a class="headerlink" href="#use-vscode" title="Permanent link">¶</a></h1>
+<p>Once you are done running the <a href="../setup_script">setup script</a>, your installation of VSCode will be ready to run and debug any components of Assemblyline and most launch targets are already pre-configured. This page will point you in the right direction to perform some of the more common tasks that you'll have to do when developing an aspect of Assemblyline.</p>
+<h2 id="running-tasks">Running Tasks<a class="headerlink" href="#running-tasks" title="Permanent link">¶</a></h2>
+<p>After all recommended extensions are finished installing in VSCode, the task button on the sidebar should be revealed and will give you quick access to the most important tasks in the system.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../images/task_explorer.png"><img alt="Task Explorer" src="../images/task_explorer.png"/></a></p>
+<p>These tasks are split into 3 categories:</p>
+<ol>
+<li>Container - Run a single container for a single task</li>
+<li>Docker-compose - Execute a set of containers for a specific task dependency</li>
+<li>Pytest dependencies - Run necessary dependencies to run tests</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can edit the task list by modifying the <code>.vscode/tasks.json</code>. The default <code>task.json</code> file can be found in the <a href="https://github.com/CybercentreCanada/assemblyline-development-setup/blob/master/.vscode/tasks.json">assemblyline-development-setup</a> repository.</p>
+</div>
+<h3 id="container-tasks">Container tasks<a class="headerlink" href="#container-tasks" title="Permanent link">¶</a></h3>
+<p>A container task executes one specific container in the system. Two of these tasks are predefined:</p>
+<h4 id="frontend">Frontend<a class="headerlink" href="#frontend" title="Permanent link">¶</a></h4>
+<p>The Frontend task is used to run the User Interface of Assemblyline. It is only useful for when you launch the Assemblyline API Server in debug mode and are <strong>NOT</strong> using the <code>core components</code> task. Assemblyline's frontend is now built using ReactJS and is served via <code>NPM serve</code> which is why it is not part of this setup. Refer to the <a href="../../../frontend/frontend">frontend development</a> page for more information on how to do development on the Assemblyline frontend.</p>
+<h4 id="resultsample">ResultSample<a class="headerlink" href="#resultsample" title="Permanent link">¶</a></h4>
+<p>The ResultSample task was created to show the developers how to run newly created service containers in the system.</p>
+<div class="admonition example">
+<p class="admonition-title">Deep dive in the ResultSample Task</p>
+<p>This is what the JSON block for executing the ResultSample service in VSCode looks like:
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Container - ResultSample"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shell"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"LOCAL_IP"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.1"</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docker run --env SERVICE_API_HOST=http://${LOCAL_IP}:5003 --network=host cccs/assemblyline-service-resultsample"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"runOptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"instanceLimit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div></p>
+<p>Essentially, this runs the <code>docker run</code> command and specifies where the <em>service server</em> API is located. You can change the <code>LOCAL_IP</code> environment variable if your Docker subnet is different.</p>
+<p>If you want to make sure Docker's local IP is indeed the default, <code>172.17.0.1</code>, just run this command:
+<div class="highlight"><pre><span></span><code>ip<span class="w"> </span>addr<span class="w"> </span>show<span class="w"> </span>docker0<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"inet "</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>cut<span class="w"> </span>-f1<span class="w"> </span>-d<span class="s2">"/"</span>
+</code></pre></div></p>
+</div>
+<h3 id="docker-compose-tasks">Docker-compose tasks<a class="headerlink" href="#docker-compose-tasks" title="Permanent link">¶</a></h3>
+<p>The <code>docker-compose</code> tasks are used to run sets of predefined dependencies in the system.</p>
+<h4 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">¶</a></h4>
+<p>Before trying to run anything, at the bare minimum you will need one of the two <code>Dependencies</code> tasks running.</p>
+<ul>
+<li><code>Dependencies (Basic)</code> will run the bare minimum set of containers to start components in the system: Elasticsearch, Redis, Minio, and Nginx.</li>
+<li><code>Dependencies (Basic + Kibana)</code> will run the same containers as the Basic task but will add Kibana, Filebeat, and APM so that you can have access to the Kibana dashboard and debug your system more efficiently.</li>
+</ul>
+<h4 id="core-components">Core components<a class="headerlink" href="#core-components" title="Permanent link">¶</a></h4>
+<p>The <code>core components</code> <code>docker-compose</code> task runs all Assemblyline core components:</p>
+<ul>
+<li>Service server</li>
+<li>Frontend</li>
+<li>API Server</li>
+<li>Socket IO Server</li>
+<li>Alerter</li>
+<li>Expiry</li>
+<li>Metrics</li>
+<li>Heartbeats</li>
+<li>Statistics</li>
+<li>Workflow</li>
+<li>Plumber</li>
+<li>Dispatcher</li>
+<li>Ingester</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are wondering what each component does, you should read the <a href="../../../core/infrastructure">Infrastructure</a> documentation which gives a brief description of each component.</p>
+</div>
+<p>The <code>core components</code> task will also add two test users to the system:</p>
+<table>
+<thead>
+<tr>
+<th>uid</th>
+<th>password</th>
+<th>is_admin</th>
+<th>apikey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>user</td>
+<td>no</td>
+<td>devkey:user</td>
+</tr>
+<tr>
+<td>admin</td>
+<td>admin</td>
+<td>yes</td>
+<td>devkey:admin</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scaler-and-updater">Scaler and Updater<a class="headerlink" href="#scaler-and-updater" title="Permanent link">¶</a></h4>
+<p>This task is an extra core component task that will launch Updater and Scaler. This task requires you to run one of the <code>dependency</code> tasks as well as the <code>core components</code> task to run properly. Scaler and Updater have been separated from the <code>core components</code> task because they interfere with running services live in the system. You are unlikely to ever run this task unless you are working on an issue loading containers from Scaler or Updater.</p>
+<h4 id="services">Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h4>
+<p>This task will register all services to the system and allow them to be instantiated by Scaler and Updater. You are unlikely to run this task unless you want a working dev system that can scan files just like an appliance can.</p>
+<h3 id="pytest-dependencies">Pytest dependencies<a class="headerlink" href="#pytest-dependencies" title="Permanent link">¶</a></h3>
+<p>The Pytest dependencies tasks are used to set up the environment properly to be able to run the tests like if you were building the packages. There are 4 possible dependencies for the tests:</p>
+<ul>
+<li>Base - To run the tests for the <code>assemblyline-base</code> repository</li>
+<li>Core - To run the tests for the <code>assemblyline-core</code> repository</li>
+<li>Service Server - To run the tests for the <code>assemblyline-service-server</code> repository</li>
+<li>UI or All - To run the tests for the <code>assemblyline-ui</code> repository or any other repository for that matter</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In most cases, if you are running tests you can use <code>UI or All</code> tasks because all the tests will work with it, but you might want to use the other tasks to save on resources and on dependency loading time.</p>
+</div>
+<h2 id="launching-components-in-debug-mode">Launching components in debug mode<a class="headerlink" href="#launching-components-in-debug-mode" title="Permanent link">¶</a></h2>
+<p>Using debug mode on all of Assemblyline's components will probably be the single most useful thing that is pre-configured by the <a href="../setup_script">setup script</a>. All Assemblyline's components get a launch target out of the box to simplify your debugging needs. Simply click the <code>Run/Debug</code> quick access side menu, select the component that you want to launch, and click the play button.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../images/launch.png"><img alt="Launch targets" src="../images/launch.png"/></a></p>
+<p>The configured launch targets have been pre-fixed with category to help you identify what they do:</p>
+<ul>
+<li>Core - Core components unrelated to services</li>
+<li>Data - Script that generates random data in the system</li>
+<li>Service Server - Service API server</li>
+<li>Service - Service Live debugging</li>
+<li>UI - Assemblyline API Servers</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>To be able to successfully run these components, you will have to run at minimum the <a href="#dependencies">Dependencies (Basic)</a> tasks</p>
+</div>
+<h3 id="core-service-server-and-ui">Core, Service Server, and UI<a class="headerlink" href="#core-service-server-and-ui" title="Permanent link">¶</a></h3>
+<p>The core, service server, and UI categories of launch targets are mostly self-explanatory. They will launch in debug mode any of the core components from the system.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you are wondering what each component does, you should read the <a href="../../../core/infrastructure">Infrastructure</a> which gives a brief description of every single one of them.</p>
+</div>
+<h4 id="cli-command-line-interface">CLI - Command Line Interface<a class="headerlink" href="#cli-command-line-interface" title="Permanent link">¶</a></h4>
+<p>This launch target from the core category launches an interactive console that will let perform a specific task in the system. You can use the <code>help</code> command to find out what possible commands are available.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../images/console.png"><img alt="console" src="../images/console.png"/></a></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The commands that are found in this interactive console can be very dangerous and most of them should not be run on a production system.</p>
+</div>
+<h3 id="data-launch-target">Data Launch target<a class="headerlink" href="#data-launch-target" title="Permanent link">¶</a></h3>
+<p>The launch targets in the data category are used to create random data in the system.</p>
+<h4 id="create-default-users">Create default users<a class="headerlink" href="#create-default-users" title="Permanent link">¶</a></h4>
+<p>This launch target will generate the same default user as the <a href="#core-components">Core components tasks</a> does:</p>
+<table>
+<thead>
+<tr>
+<th>uid</th>
+<th>password</th>
+<th>is_admin</th>
+<th>apikey</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>user</td>
+<td>no</td>
+<td>devkey:user</td>
+</tr>
+<tr>
+<td>admin</td>
+<td>admin</td>
+<td>yes</td>
+<td>devkey:admin</td>
+</tr>
+</tbody>
+</table>
+<h4 id="generate-random-data">Generate random data<a class="headerlink" href="#generate-random-data" title="Permanent link">¶</a></h4>
+<p>In addition to creating the default users, this task will also use the random data generator to fill the different indexes of the system with data that has been randomly generated. This is especially useful when testing APIs or Frontend which require you to have data in the different indices.</p>
+<h3 id="running-live-services">Running live services<a class="headerlink" href="#running-live-services" title="Permanent link">¶</a></h3>
+<p>Running services in a live Assemblyline dev environment is the most important thing to know while building a service. It will allow you to send files via the user interface and put breakpoints in your service to catch files as they come through for processing.</p>
+<p>To run a service live in the system you will need to launch two components:</p>
+<ul>
+<li>Task Handler</li>
+<li>Your service</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Here are a few things to consider before running a service live in debug mode:</p>
+<ol>
+<li>You need to start both the <a href="#dependencies">Dependencies (Basic)</a> and the <a href="#core-components">Core components</a> tasks before starting your service to ensure that it will receive files.</li>
+<li>You can have <strong>one</strong> Task handler instance running at the time therefore can only debug one service at the time. Task handler communicates with the service via fixed named pipes in the <code>/tmp</code> directory which is the reason for that limitation.</li>
+<li>The first time you start a service, you'll have to start the task handler and your service twice because the service stops itself after registering in the DB.</li>
+<li>You should launch your service from the VSCode window pointing to your services git folder (<code>~/git/services</code>) and for it to exist, you should have run the <code>setup_script.sh</code> with the <code>-s</code> option.</li>
+</ol>
+</div>
+<h4 id="create-a-launch-target-for-your-service">Create a launch target for your service<a class="headerlink" href="#create-a-launch-target-for-your-service" title="Permanent link">¶</a></h4>
+<p>To add a launch target for your service, you will have to modify the <code>.vscode/launch.json</code> file in your <code>~/git/services</code> directory. You can mimic the Safelist launch target as a baseline.</p>
+<div class="admonition example">
+<p class="admonition-title">Demo Safelist launch target</p>
+<div class="highlight"><pre><span></span><code><span class="err">...</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"[Service] Safelist - LIVE"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"python"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"request"</span><span class="p">:</span><span class="w"> </span><span class="s2">"launch"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"module"</span><span class="p">:</span><span class="w"> </span><span class="s2">"assemblyline_v4_service.run_service"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">"SERVICE_PATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"safelist.Safelist"</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">"console"</span><span class="p">:</span><span class="w"> </span><span class="s2">"internalConsole"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"cwd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"${workspaceFolder}/assemblyline-service-safelist"</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="err">...</span>
+</code></pre></div>
+</div>
+<p>The only three things you will have to change for launching your service are the following</p>
+<ol>
+<li>The name of the launch target so you can pick it from the list later</li>
+<li>The environment variable <code>SERVICE_PATH</code>. This should be the Python path to the service class relative to your current working directory.</li>
+<li>The current working directory. This should be the directory where your service code is, a new directory you've created for your service inside the <code>~/git/services</code> folder.</li>
+</ol>
+<h4 id="launch-the-service">Launch the service<a class="headerlink" href="#launch-the-service" title="Permanent link">¶</a></h4>
+<p>Launching the service will take place again in the VSCode window dedicated to services. From the <code>Run/Debug</code> quick access sidebar, you will launch the <code>Task handler</code> first then the launch target for your service that you've just created.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../images/service_ex.png"><img alt="Service Exec" src="../images/service_ex.png"/></a></p>
+<p>Your service should now be running in live mode!</p>
+<h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">¶</a></h2>
+<p>After running the <a href="../setup_script">setup script</a> for VSCode, the testing interface from the VSCode Python extension will be shown in your quick access side menu and will present you with all available unit tests. You can then simply click the test or group of tests you want to run and hit the <code>play</code> button to run the tests.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to first launch the appropriate <a href="#pytest-dependencies">Pytest Dependency</a> from the tasks otherwise all the tests will fail.</p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="../images/tests.png"><img alt="Tests" src="../images/tests.png"/></a></p>
+<div class="admonition bug">
+<p class="admonition-title">No tests available?</p>
+<p>If the testing interface is not showing any tests, load up the <a href="#pytest-dependencies">'UI and All' Pytest Dependency</a> task and hit the "Reload tests" button.</p>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
+            Back to top
+          </a>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Setup script" class="md-footer__link md-footer__link--prev" href="../setup_script/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Setup script
+            </div>
+</div>
+</a>
+<a aria-label="Next: Local development" class="md-footer__link md-footer__link--next" href="../../pycharm/local_development/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Next
+              </span>
+              Local development
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+            Material for MkDocs
+          </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.expand", "navigation.top"], "search": "../../../../../assets/javascripts/workers/search.fcfe8b6d.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": null}</script>
+<script src="../../../../../assets/javascripts/bundle.b1047164.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+<script src="../../../../../javascripts/tables.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": false, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
